@@ -8,7 +8,7 @@
   </div>
   <div class="m-2 p-2">
     <form action="/short" method="POST">
-      <input class="form-control" type="text" name="short" placeholder="input url here" value="{{shortURL}}">
+      <input class="form-control" type="url" name="short" placeholder="input url here" value="{{shortURL}}">
       <button type="submit" class="btn btn-success m-2 p-2">Click me to Shorten</button>
     </form>
     {{#if shortURL}}
