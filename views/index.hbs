@@ -1,0 +1,27 @@
+
+<div class="d-flex flex-column text-center ">
+  <div class="m-2 p-2">
+    <h2>URL Shortener</h2>
+  </div>
+  <div class="m-2 p-2" >
+    <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="URL Shortener" style="width: 15vw">
+  </div>
+  <div class="m-2 p-2">
+    <form action="/short" method="POST">
+      <input class="form-control" type="text" name="short" placeholder="input url here" value="{{shortURL}}">
+      <button type="submit" class="btn btn-success m-2 p-2">Click me to Shorten</button>
+    </form>
+    {{#if shortURL}}
+      <div class="text-start">
+        <h4 class="mr-2">Success! Please use this Link:</h4> 
+        <div class="ml-2 fs-3" style="color:#FF5A33">{{shortURL}}</div>
+      </div>
+    {{/if}}
+    {{#if notFoundUrl}}
+      <div class="text-start alert alert-danger text-align-center">
+        <h3 class="mt-2">Oops! Please input URL</h3>
+      </div>
+      {{else}}
+    {{/if}}
+  </div>
+</div>
