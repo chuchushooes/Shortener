@@ -8,20 +8,24 @@
   </div>
   <div class="m-2 p-2">
     <form action="/short" method="POST">
-      <input class="form-control" type="url" name="short" placeholder="input url here" value="{{shortURL}}">
+      <input class="form-control" type="url" name="short" placeholder="input url here" value="{{baseurl}}">
       <button type="submit" class="btn btn-success m-2 p-2">Click me to Shorten</button>
     </form>
-    {{#if shortURL}}
+    {{#if baseurl}}
       <div class="text-start">
-        <h4 class="mr-2">Success! Please use this Link:</h4> 
-        <div class="ml-2 fs-3" style="color:#FF5A33">{{shortURL}}</div>
+        {{#if originUrl}}
+        <h4 class="mr-2" style="color:#FF5A33">You have been create this Link</h4>
+        {{else}}
+        <h4 class="mr-2">Success! Please use this Link:</h4>
+        {{/if}}
+        <div class="ml-2 fs-3" style="color:#FF5A33">{{reurl}}</div>
       </div>
     {{/if}}
+    
     {{#if notFoundUrl}}
       <div class="text-start alert alert-danger text-align-center">
         <h3 class="mt-2">Oops! Please input URL</h3>
       </div>
-      {{else}}
     {{/if}}
   </div>
 </div>
