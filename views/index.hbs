@@ -1,30 +1,40 @@
 
-<div class="d-flex flex-column text-center ">
+<div class="d-flex flex-column align-items-center text-center">
   <div class="m-2 p-2">
     <h2>URL Shortener</h2>
   </div>
   <div class="m-2 p-2" >
     <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="URL Shortener" style="width: 15vw">
   </div>
-  <div class="m-2 p-2">
+  <div class="m-2 p-2 ">
     <form action="/short" method="POST">
-      <input class="form-control" type="url" name="short" placeholder="input url here" value="{{baseurl}}">
+      <input class="form-control" type="url" name="short" placeholder="input url here" value="{{baseurl}}" style="width: 60vw" >
       <button type="submit" class="btn btn-success m-2 p-2">Click me to Shorten</button>
     </form>
     {{#if baseurl}}
       <div class="text-start">
         {{#if originUrl}}
-        <h4 class="mr-2" style="color:#FF5A33">You have been create this Link</h4>
+        <div class="alert alert-danger mr-2 fs-4 text-center" role="alert">You have been create this Link</div>
         {{else}}
-        <h4 class="mr-2">Success! Please use this Link:</h4>
+        <div class="alert alert-success mr-2 fs-4 text-center" role="alert">▼ Success! Please use this Link ▼</div>
         {{/if}}
-        <div class="ml-2 fs-3" style="color:#FF5A33">{{reurl}}</div>
+        <div class=" fs-3 d-inline-block align-middle" id="copy" style="width: 50vw">{{reurl}}</div>
+        <button class="btn btn-info d-inline-block align-middle ml-2 btn-copyUrl">Copy Url</button>
       </div>
+      <script>
+        const btn = document.querySelector('.btn-copyUrl')
+        btn.addEventListener('click', copyUrl)
+        function copyUrl() {
+          const copyUrl = document.getElementById('copy')
+          console.log(copyUrl.textContent)
+          navigator.clipboard.writeText(copyUrl.textContent);
+          alert("Copied the Url: " + copyUrl.textContent);
+        }
+      </script>
     {{/if}}
-    
     {{#if notFoundUrl}}
       <div class="text-start alert alert-danger text-align-center">
-        <h3 class="mt-2">Oops! Please input URL</h3>
+        <div class="alert alert-danger mr-2 fs-4" role="alert">Oops! Please input URL</div>
       </div>
     {{/if}}
   </div>

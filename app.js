@@ -2,11 +2,13 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const Records = require('./models/records')
+const randomNumCreate = require('./utilities/randomNumCreate')
 const port = 3000
 const mainUrl = `http://localhost:${port}/`
 
 const app = express()
 app.use(express.urlencoded({extended: true}))
+app.use(express.static('public'))
 mongoose.connect(process.env.MONGODB_URI_shorturl)
 
 app.engine('hbs', exphbs.engine({defaultLayout: 'main', extname: '.hbs'}))
@@ -29,15 +31,17 @@ app.get('/', (req, res) => {
 })
 
 
+
+// 瀏覽器導向原本的網站
 app.get('/short/:reurlCode', (req, res) => {
   const reurlCode = req.params.reurlCode
   Records.findOne({ reurl: reurlCode })
   .lean()
-  .then((url) => res.redirect(`${url.baseurl}`)) //返回原網址
+  .then((url) => res.redirect(`${url.baseurl}`))
   .catch(error => console.log(error))
 })
 
-
+// 新增資料
 app.post('/short', (req, res) => {
   const newURL = req.body.short
   console.log('get form POST request')
@@ -75,7 +79,5 @@ app.listen(port, () => {
   console.log(`location:${port} active`)
 })
 
-function randomNumCreate() {
-  let randomNum = (Math.random() + 1).toString(36).substring(7)
-  return randomNum
-}
+
+
