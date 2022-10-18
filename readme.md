@@ -4,6 +4,7 @@
 ![image](https://github.com/chuchushooes/Shortener/blob/main/img/success.png)
 ![image](https://github.com/chuchushooes/Shortener/blob/main/img/Oops.png)
 ![image](https://github.com/chuchushooes/Shortener/blob/main/img/haveurl.png)
+![image](https://github.com/chuchushooes/Shortener/blob/main/img/error.png)
 
 ## 功能列表 - Features
 
