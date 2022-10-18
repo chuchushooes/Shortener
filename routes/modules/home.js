@@ -11,13 +11,13 @@ router.get('/', (req, res) => {
 })
 
 
-// 瀏覽器導向原本的網站
+// 瀏覽器導向原本的網站，輸入錯誤短網址會告訴使用者error
 router.get('/short/:reurlCode', (req, res) => {
   let reurlCode = req.params.reurlCode
   Records.findOne({ reurlCode })
   .lean()
   .then(url => res.redirect(url.baseurl))
-  .catch(error => console.log(error))
+  .catch(error => res.render('error', { errorLink: mainUrl + 'short/' + reurlCode }))
 })
 
 //新增資料
