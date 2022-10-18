@@ -21,19 +21,11 @@
         <div class=" fs-3 d-inline-block align-middle" id="copy" style="width: 50vw">{{reurl}}</div>
         <button class="btn btn-info d-inline-block align-middle ml-2 btn-copyUrl">Copy Url</button>
       </div>
-      <script>
-        const btn = document.querySelector('.btn-copyUrl')
-        btn.addEventListener('click', copyUrl)
-        function copyUrl() {
-          const copyUrl = document.getElementById('copy')
-          console.log(copyUrl.textContent)
-          navigator.clipboard.writeText(copyUrl.textContent);
-          alert("Copied the Url: " + copyUrl.textContent);
-        }
-      </script>
     {{/if}}
     {{#if notFoundUrl}}
       <div class="alert alert-danger mr-2 fs-4 text-center" role="alert">▲ Oops! Please input UR L▲</div>
     {{/if}}
   </div>
 </div>
+
+<script src="/javaScripts/copyurl.js"></script>
