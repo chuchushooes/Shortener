@@ -1,11 +1,4 @@
 
-<div class="d-flex flex-column align-items-center text-center">
-  <div class="m-2 p-2">
-    <h2>URL Shortener</h2>
-  </div>
-  <div class="m-2 p-2" >
-    <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="URL Shortener" style="width: 15vw">
-  </div>
   <div class="m-2 p-2 ">
     <form action="/short" method="POST">
       <input class="form-control" type="url" name="short" placeholder="input url here" value="{{baseurl}}" style="width: 60vw" >
@@ -23,7 +16,7 @@
       </div>
     {{/if}}
     {{#if notFoundUrl}}
-      <div class="alert alert-danger mr-2 fs-4 text-center" role="alert">▲ Oops! Please input UR L▲</div>
+      <div class="alert alert-danger mr-2 fs-4 text-center" role="alert">▲ Oops! Please input URL ▲</div>
     {{/if}}
   </div>
 </div>
