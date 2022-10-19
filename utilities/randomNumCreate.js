@@ -7,8 +7,8 @@ function randomNumCreate() {
 function randomNumCreate(randomTimes) {
   let randomChart = ''
   const chart = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  chartArr = chart.split('')
-  for(let i=0; i < randomTimes; i++) {
+  const chartArr = chart.split('')
+  for(let i = 0; i < randomTimes; i++) {
     randomChart += chartArr[Math.floor(Math.random()* (chartArr.length - 1))]
   }
   return randomChart
