@@ -39,7 +39,7 @@ router.post('/short', (req, res) => {
       return res.render('index', { notFoundUrl })
     } else {
 //新增資料
-    const reurlCode = randomNumCreate()
+    const reurlCode = randomNumCreate(5)
     Records.create({ baseurl: newURL, reurlCode })
     .then(() => {
       const reurl = `${mainUrl}short/${reurlCode}`
